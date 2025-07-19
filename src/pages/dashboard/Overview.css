@@ -1,162 +1,162 @@
-/* === Ticker Section === */
-.ticker-container {
-  width: 100%;
-  background-color: #0d1117;
-  overflow: hidden;
-  border-bottom: 1px solid #21262d;
-  padding: 0.5rem 0;
+.elaenia-overview {
+  background-color: #0f0e1c;
+  color: white;
+  padding: 2rem;
+  font-family: "Inter", sans-serif;
 }
 
-.ticker-scroll {
+.welcome-header {
   display: flex;
-  width: fit-content;
-  gap: 2.5rem;
-  animation: scroll-infinite 50s linear infinite;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
-@keyframes scroll-infinite {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.welcome-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #aaa;
 }
 
-.ticker-card {
+.welcome-header h3 {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: #777;
+}
+
+.balance {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.growth h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.growth .positive {
+  color: #00ffbf;
+}
+
+.portfolio-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.coin-card {
+  background-color: #1e1a3d;
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1 1 200px;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+}
+
+.coin-header {
+  display: flex;
   align-items: center;
-  min-width: 130px;
-  color: white;
-}
-
-.ticker-label {
-  font-size: 0.85rem;
-  margin-bottom: 0.3rem;
-  text-align: center;
-}
-
-.mini-chart {
-  background: #161b22;
-  border-radius: 6px;
-  padding: 0.2rem;
-}
-
-
-/* === Metrics Section === */
-.overview-container {
-  padding: 2rem;
-  background-color: #0d1117;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-}
-
-.overview-header {
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 2rem 0 1.5rem;
-  color: #f0f6fc;
-  text-align: center;
-}
-
-.overview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-}
-
-.overview-card {
-  background: #161b22;
-  border: 1px solid #30363d;
-  border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
-}
-
-.overview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-}
-
-.card-icon {
-  font-size: 2.2rem;
-  margin-bottom: 0.75rem;
-}
-
-.overview-title {
+  gap: 0.5rem;
+  font-weight: bold;
   font-size: 1rem;
-  font-weight: 500;
-  color: #c9d1d9;
-  margin-bottom: 0.3rem;
 }
 
-.overview-value {
-  font-size: 1.6rem;
-  font-weight: 700;
+.coin-amount {
+  font-size: 0.9rem;
+  color: #ccc;
 }
 
+.coin-usd {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #fff;
+}
 
-/* === Live Trades Section === */
-.trades-container {
-  margin-top: 3rem;
-  background: #161b22;
-  padding: 2rem;
+.chart-section {
+  background-color: #1e1a3d;
+  padding: 1rem;
   border-radius: 12px;
-  border: 1px solid #30363d;
+  margin-bottom: 2rem;
 }
 
-.trades-header {
-  color: #f0f6fc;
+.chart-tabs {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.chart-tabs button {
+  background: none;
+  color: #aaa;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.chart-tabs .active {
+  color: #00ffbf;
+  border-bottom: 2px solid #00ffbf;
+}
+
+.stats-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: #1e1a3d;
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1 1 200px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.stat-value {
   font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
+  font-weight: bold;
+  color: #fff;
 }
 
-.trades-table {
-  max-height: 300px;
-  overflow-y: auto;
-  font-family: 'Inter', sans-serif;
+.follow-section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
 }
 
-.table-header,
-.table-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  padding: 0.6rem 1rem;
-  border-bottom: 1px solid #21262d;
-  font-size: 0.95rem;
+.follow-card {
+  background-color: #1e1a3d;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.table-header {
-  color: #94a3b8;
-  font-weight: 600;
-  background: #1f2937;
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.follow-info {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
 }
 
-.table-row {
-  color: #e2e8f0;
+.green {
+  color: #00ffbf;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.table-row .buy {
-  color: #22c55e;
-  font-weight: 600;
-}
-
-.table-row .sell {
-  color: #ef4444;
-  font-weight: 600;
-}
-
-.trades-table::-webkit-scrollbar {
-  width: 6px;
-}
-.trades-table::-webkit-scrollbar-thumb {
-  background: #374151;
-  border-radius: 10px;
+.red {
+  color: #ff4d4d;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }

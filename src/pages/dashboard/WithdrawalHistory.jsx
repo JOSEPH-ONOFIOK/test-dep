@@ -1,33 +1,76 @@
-import "./Withdrawal.css";
+import { useState } from "react";
+import "./Withdrawals.css";
 
-const history = [
-  { date: "2024-06-01", amount: 150, status: "Completed" },
-  { date: "2024-06-10", amount: 200, status: "Pending" },
-  { date: "2024-06-20", amount: 100, status: "Failed" },
-];
+export default function Withdrawals() {
+  const [formData, setFormData] = useState({
+    amount: "",
+    method: "Bank Transfer",
+    walletAddress: "",
+  });
 
-export default function WithdrawalHistory() {
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Withdrawal request submitted for ${formData.amount}`);
+    setFormData({
+      amount: "",
+      method: "Bank Transfer",
+      walletAddress: "",
+    });
+  };
+
   return (
-    <div className="dashboard-page">
-      <h2>Withdrawal History</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Amount ($)</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {history.map((item, i) => (
-            <tr key={i}>
-              <td>{item.date}</td>
-              <td>{item.amount}</td>
-              <td className={`status ${item.status.toLowerCase()}`}>{item.status}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="withdrawal-page">
+      <h2>Request Withdrawal</h2>
+      <form className="withdrawal-form" onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Amount (USD)</label>
+          <input
+            type="number"
+            name="amount"
+            value={formData.amount}
+            onChange={handleChange}
+            required
+            placeholder="Enter amount"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Withdrawal Method</label>
+          <select
+            name="method"
+            value={formData.method}
+            onChange={handleChange}
+          >
+            <option>Bank Transfer</option>
+            <option>Bitcoin</option>
+            <option>Ethereum</option>
+            <option>USDT (TRC20)</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Wallet Address / Bank Details</label>
+          <input
+            type="text"
+            name="walletAddress"
+            value={formData.walletAddress}
+            onChange={handleChange}
+            required
+            placeholder="Enter address or account details"
+          />
+        </div>
+
+        <button type="submit" className="submit-btn">
+          Submit Request
+        </button>
+      </form>
     </div>
   );
 }

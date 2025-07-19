@@ -1,12 +1,71 @@
-.status.completed {
-  color: green;
-  font-weight: bold;
+.withdrawal-page {
+  padding: 2rem 3rem;
+  font-family: "Inter", sans-serif;
+  color: #e2e8f0;
+  background-color: #0f0e1c;
+  min-height: 100vh;
 }
-.status.pending {
-  color: orange;
-  font-weight: bold;
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: #38bdf8;
+  font-weight: 600;
 }
-.status.failed {
-  color: red;
-  font-weight: bold;
+
+.withdrawal-form {
+  background-color: #1e1a3d;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px #2d3748, 0 4px 20px rgba(56, 189, 248, 0.08);
+  max-width: 600px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+input::placeholder {
+  color: #64748b;
+}
+
+input:focus,
+select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.4);
+}
+
+.submit-btn {
+  background-color: #38bdf8;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #0ea5e9;
 }

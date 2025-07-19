@@ -10,24 +10,26 @@ export default function Transactions() {
   return (
     <div className="dashboard-page">
       <h2>Transaction History</h2>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Type</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((txn, i) => (
-            <tr key={i}>
-              <td>{txn.date}</td>
-              <td>{txn.type}</td>
-              <td>{txn.amount}</td>
+      <div className="table-wrapper">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Amount</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {transactions.map((txn, i) => (
+              <tr key={i}>
+                <td>{txn.date}</td>
+                <td>{txn.type}</td>
+                <td>{txn.amount}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
