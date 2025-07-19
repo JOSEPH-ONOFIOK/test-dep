@@ -1,0 +1,97 @@
+.aboutus-container {
+  font-family: 'Segoe UI', sans-serif;
+  color: #001018;
+  line-height: 1.6;
+}
+
+.aboutus-hero {
+  background-color: #f5f7fa;
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.aboutus-hero h1 {
+  font-size: 2.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.aboutus-hero p {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+.aboutus-content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.aboutus-content h2 {
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  color: #0a0a0a;
+}
+
+.aboutus-content p {
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  color: #333;
+}
+
+.aboutus-content ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  color: #333;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.team-member {
+  flex: 1 1 250px;
+  text-align: center;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.team-member img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+.team-member h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: #111;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .team-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutus-hero h1 {
+    font-size: 2.2rem;
+  }
+}

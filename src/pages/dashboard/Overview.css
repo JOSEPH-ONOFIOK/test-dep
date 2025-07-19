@@ -1,0 +1,162 @@
+/* === Ticker Section === */
+.ticker-container {
+  width: 100%;
+  background-color: #0d1117;
+  overflow: hidden;
+  border-bottom: 1px solid #21262d;
+  padding: 0.5rem 0;
+}
+
+.ticker-scroll {
+  display: flex;
+  width: fit-content;
+  gap: 2.5rem;
+  animation: scroll-infinite 50s linear infinite;
+}
+
+@keyframes scroll-infinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 130px;
+  color: white;
+}
+
+.ticker-label {
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  text-align: center;
+}
+
+.mini-chart {
+  background: #161b22;
+  border-radius: 6px;
+  padding: 0.2rem;
+}
+
+
+/* === Metrics Section === */
+.overview-container {
+  padding: 2rem;
+  background-color: #0d1117;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+.overview-header {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 2rem 0 1.5rem;
+  color: #f0f6fc;
+  text-align: center;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.overview-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.overview-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.overview-title {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #c9d1d9;
+  margin-bottom: 0.3rem;
+}
+
+.overview-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+
+/* === Live Trades Section === */
+.trades-container {
+  margin-top: 3rem;
+  background: #161b22;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #30363d;
+}
+
+.trades-header {
+  color: #f0f6fc;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+}
+
+.trades-table {
+  max-height: 300px;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid #21262d;
+  font-size: 0.95rem;
+}
+
+.table-header {
+  color: #94a3b8;
+  font-weight: 600;
+  background: #1f2937;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table-row {
+  color: #e2e8f0;
+}
+
+.table-row .buy {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.table-row .sell {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.trades-table::-webkit-scrollbar {
+  width: 6px;
+}
+.trades-table::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 10px;
+}

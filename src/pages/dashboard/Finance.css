@@ -1,0 +1,21 @@
+.finance-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #1e293b;
+  background-color: #ffffff;
+  padding: 1rem 3rem;
+  border-radius: 10%;
+  
+}
+
+.finance-row strong {
+  color: #475569;
+}
+
+/* Last row no margin */
+.finance-row:last-child {
+  margin-bottom: 0;
+}
+
