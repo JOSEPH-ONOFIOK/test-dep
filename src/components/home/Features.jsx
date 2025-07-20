@@ -43,7 +43,7 @@ const Features = () => {
           <h3>PREMIUM PLAN</h3>
           <p className="plan-rate">60% • 60 Days</p>
           <ul>
-            <li>Minimum: $50,001</li>
+            <li>Minimum: $50,000</li>
             <li>Maximum: Unlimited</li>
             <li>Principal: Included in Profit</li>
             <li>Payout: Every Calendar Day</li>

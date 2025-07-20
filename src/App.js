@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 // Public Pages
 import HomePage from "./pages/home";
@@ -19,7 +19,7 @@ import Profile from "./pages/dashboard/Profile";
 import Packages from "./pages/dashboard/Packages";
 import Help from "./pages/dashboard/Help";
 import Transactions from "./pages/dashboard/Transactions";
-import Deposit from "./pages/dashboard/Deposit";  // ✅ Capitalized component name
+import Deposit from "./pages/dashboard/Deposit";
 import KYC from "./pages/dashboard/KYC";
 import Withdrawals from "./pages/dashboard/WithdrawalHistory";
 
@@ -44,7 +44,7 @@ export default function App() {
           <Route path="profile" element={<Profile />} />
           <Route path="help" element={<Help />} />
           <Route path="transactions" element={<Transactions />} />
-          <Route path="deposit" element={<Deposit />} /> {/* ✅ Correctly capitalized */}
+          <Route path="deposit" element={<Deposit />} />
           <Route path="kyc" element={<KYC />} />
           <Route path="withdrawals" element={<Withdrawals />} />
         </Route>

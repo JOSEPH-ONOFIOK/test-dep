@@ -7,7 +7,7 @@ const AboutUs = () => {
       <div className="about-container">
         <h2 className="about-title">What We Do</h2>
         <p>
-          At CryptoNest, we invest in cryptocurrency and blockchain-based assets, providing our clients with a single access point to a diversified portfolio. Our goal is to deliver the best risk-adjusted returns in crypto asset investing. We operate across four major pillars—equities, fixed income, multi-asset strategies, and alternatives—covering both public and private markets worldwide.
+          At Noventra Capital, we invest in cryptocurrency and blockchain-based assets, providing our clients with a single access point to a diversified portfolio. Our goal is to deliver the best risk-adjusted returns in crypto asset investing. We operate across four major pillars—equities, fixed income, multi-asset strategies, and alternatives—covering both public and private markets worldwide.
         </p>
         <p>
           Backed by a team of passionate entrepreneurs who have founded and grown over 60 market-leading internet companies globally, we bring deep operational discipline, innovation, and execution excellence to every investment. Our experience spans developed and emerging markets, ensuring our clients benefit from dynamic, high-impact strategies.

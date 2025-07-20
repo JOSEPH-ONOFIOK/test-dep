@@ -13,6 +13,14 @@ export default function Navbar() {
       <div className="navbar-container">
         <div className="logo">Noventra Capital</div>
 
+        {/* Hamburger menu */}
+        <div className="hamburger" onClick={toggleMenu}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        {/* Navigation links */}
         <div className={`nav-links ${isOpen ? "open" : ""}`}>
           <Link to="/" onClick={closeMenu}>Home</Link>
           <Link to="/about" onClick={closeMenu}>About Us</Link>
@@ -22,12 +30,6 @@ export default function Navbar() {
           <Link to="/createaccount" className="cta-button" onClick={closeMenu}>
             Get Started
           </Link>
-        </div>
-
-        <div className="hamburger" onClick={toggleMenu}>
-          <span></span>
-          <span></span>
-          <span></span>
         </div>
       </div>
     </nav>

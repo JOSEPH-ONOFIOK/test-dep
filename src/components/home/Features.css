@@ -1,5 +1,5 @@
 .features-section {
-  padding: 4rem 1.5rem;
+  padding: 3rem 1rem;
   background-color: white;
   text-align: center;
   font-family: 'Segoe UI', sans-serif;
@@ -8,58 +8,80 @@
 .section-title {
   font-size: 2rem;
   font-weight: bold;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
+  color: #111827;
 }
 
+/* Plan Cards Grid */
 .plans-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   justify-content: center;
 }
 
+/* Each Plan Card */
 .plan-card {
   border: 1px solid #e5e5e5;
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 16px;
   max-width: 320px;
+  width: 100%;
   text-align: center;
-  background: #fff;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s ease forwards;
 }
 
+/* Hover Effect */
+.plan-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Plan Image */
 .plan-card img {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   margin-bottom: 1rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
+/* Plan Title */
 .plan-card h3 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
   font-weight: bold;
+  color: #1f2937;
 }
 
+/* Rate */
 .plan-rate {
   font-weight: 600;
   font-size: 1.1rem;
-  color: #111;
+  color: #0f172a;
   margin-bottom: 1rem;
 }
 
+/* Plan Details */
 .plan-card ul {
   list-style: none;
   padding: 0;
   margin: 1rem 0 1.5rem 0;
   text-align: left;
   font-size: 0.95rem;
-  color: #555;
+  color: #4b5563;
 }
 
 .plan-card ul li {
   margin-bottom: 0.5rem;
 }
 
+/* CTA Button */
 .plan-button {
   background: linear-gradient(to right, #f97316, #000);
   color: #fff;
@@ -75,15 +97,44 @@
   background: linear-gradient(to right, #ea580c, #111);
 }
 
-/* Responsive Design */
+/* Animation */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------- Mobile View ----------- */
 @media (max-width: 768px) {
+  .features-section {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+
   .plans-grid {
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
   }
 
   .plan-card {
-    width: 100%;
+    padding: 1.5rem;
+    width: 95%;
     max-width: 100%;
+  }
+
+  .plan-card ul {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .plan-button {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
   }
 }
