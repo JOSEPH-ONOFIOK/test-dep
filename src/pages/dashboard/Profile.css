@@ -1,7 +1,7 @@
 .profile-page h2 {
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
-  color: #5677c2;
+  color: #38bdf8;
   font-weight: 600;
 }
 
@@ -46,6 +46,9 @@
 
 .btn-group {
   margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .edit-btn,
@@ -70,7 +73,30 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  .profile-page h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
   .profile-card {
     padding: 1.2rem;
+    max-width: 100%;
+  }
+
+  .field-group input {
+    padding: 0.45rem;
+    font-size: 0.9rem;
+  }
+
+  .edit-btn,
+  .save-btn {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-group {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }

@@ -15,7 +15,7 @@ h2 {
 
 .withdrawal-form {
   background-color: #1e1a3d;
-  padding: 2rem;
+  padding: 6rem;
   border-radius: 12px;
   box-shadow: 0 0 0 1px #2d3748, 0 4px 20px rgba(56, 189, 248, 0.08);
   max-width: 600px;
@@ -34,7 +34,7 @@ label {
 
 input,
 select {
-  width: 100%;
+  width: 90%;
   padding: 0.8rem;
   border: 1px solid #334155;
   background-color: #0f172a;
@@ -68,4 +68,33 @@ select:focus {
 
 .submit-btn:hover {
   background-color: #0ea5e9;
+}
+
+/* Responsive styles for phone view */
+@media (max-width: 768px) {
+  .withdrawal-page {
+    padding: 1.5rem 1rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .withdrawal-form {
+    padding: 1.5rem;
+    max-width: 100%;
+  }
+
+  input,
+  select {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
 }
