@@ -85,7 +85,7 @@
 }
 
 /* Hamburger Button (Mobile Only) */
-.hamburger {
+.hamburger1 {
   display: none;
   position: fixed;
   top: 1rem;
@@ -100,7 +100,7 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .dashboard-container {
+  .dashboard-container1 {
     flex-direction: column;
   }
 
@@ -118,7 +118,7 @@
     left: 0;
   }
 
-  .hamburger {
+  .hamburger1 {
     display: block;
   }
 

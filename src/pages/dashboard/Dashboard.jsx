@@ -16,7 +16,7 @@ export default function Dashboard() {
   return (
     <div className="dashboard-container">
       {/* Hamburger menu button */}
-      <button className="hamburger" onClick={toggleSidebar}>
+      <button className="hamburger1" onClick={toggleSidebar}>
         ☰
       </button>
 
