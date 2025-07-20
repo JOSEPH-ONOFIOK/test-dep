@@ -1,0 +1,76 @@
+.profile-page h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: #5677c2;
+  font-weight: 600;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin-top: 1rem;
+}
+
+.field-group {
+  margin-bottom: 1.2rem;
+}
+
+.field-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.field-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #f8fafc;
+}
+
+.field-group input:disabled {
+  background-color: #f1f5f9;
+  color: #64748b;
+}
+
+.field-group input.readonly {
+  font-weight: 600;
+  color: #0ea5e9;
+}
+
+.btn-group {
+  margin-top: 1.5rem;
+}
+
+.edit-btn,
+.save-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #0ea5e9;
+  color: white;
+}
+
+.save-btn {
+  background-color: #10b981;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 1.2rem;
+  }
+}

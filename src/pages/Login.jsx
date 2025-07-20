@@ -1,39 +1,43 @@
-import React from "react";
+// src/pages/Login.jsx
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.css";
+import "./Auth.css";
 
 export default function Login() {
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Add authentication logic here
-    navigate("/components/Dashboard"); // Navigate to dashboard after login
+
+    // Placeholder validation
+    if (form.email && form.password) {
+      console.log("Logged in:", form);
+      navigate("/dashboard"); // ✅ Redirect to /dashboard
+    } else {
+      setError("Please enter email and password.");
+    }
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <div className="input-group">
-          <label>Email Address</label>
-          <input type="email" placeholder="Enter your email" required />
-        </div>
-        <div className="input-group">
+    <div className="auth-page">
+      <div className="auth-card">
+        <h2>Login to Your Account</h2>
+        <form onSubmit={handleSubmit}>
+          <label>Email</label>
+          <input type="email" name="email" onChange={handleChange} required />
           <label>Password</label>
-          <input type="password" placeholder="Enter your password" required />
-        </div>
-
-        <button type="submit" className="login-button">
-          Login
-        </button>
-
-        <div className="links">
-          <a href="/forgot-password">Forgot Password?</a>
-          <span> | </span>
-          <a href="/createaccount">Create Account</a>
-        </div>
-      </form>
+          <input type="password" name="password" onChange={handleChange} required />
+          <button type="submit">Login</button>
+          {error && <p className="error">{error}</p>}
+        </form>
+        <p>
+          Don't have an account? <a href="/createaccount">Sign up</a>
+        </p>
+      </div>
     </div>
   );
 }

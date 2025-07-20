@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Withdrawals.css";
+import "./Withdrawal.css";
 
 export default function Withdrawals() {
   const [formData, setFormData] = useState({

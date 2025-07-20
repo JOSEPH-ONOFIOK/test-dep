@@ -1,8 +1,85 @@
-.status-message {
-  margin-top: 1rem;
-  color: #0ea5e9;
-  font-weight: 600;
+.kyc-page {
+  font-family: "Inter", sans-serif;
 }
-.h2 {
-  color: blue;
+
+.kyc-title {
+  color: #ffffff;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.kyc-card {
+  background: #0f172a;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 520px;
+  color: #e2e8f0;
+}
+
+.kyc-instruction {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+.file-input {
+  padding: 0.6rem;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  background: #1e293b;
+  font-size: 0.95rem;
+  width: 100%;
+  color: #e2e8f0;
+  cursor: pointer;
+}
+
+.alert {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #0ea5e9;
+  color: #fff;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.preview-section {
+  margin-top: 1.5rem;
+}
+
+.status-text {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #38bdf8;
+}
+
+.preview-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+}
+
+.pdf-notice {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-top: 0.5rem;
+}
+
+.resubmit-btn {
+  margin-top: 1rem;
+  background-color: #1e293b;
+  color: #38bdf8;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.resubmit-btn:hover {
+  background-color: #334155;
 }

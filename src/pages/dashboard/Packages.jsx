@@ -1,8 +1,7 @@
-
 import { useEffect, useState } from "react";
-import "./Dashboard.css";
+import "./Packages.css";
 
-export default function Markets() {
+export default function Packages() {
   const [prices, setPrices] = useState({ BTC: null, ETH: null, USDT: null });
 
   useEffect(() => {
@@ -18,7 +17,7 @@ export default function Markets() {
           USDT: data.tether.usd,
         });
       } catch (error) {
-        console.error("Error fetching market prices:", error);
+        console.error("Error fetching prices:", error);
       }
     };
 
@@ -28,12 +27,40 @@ export default function Markets() {
   }, []);
 
   return (
-    <div className="dashboard-page">
-      <h2>Market Overview</h2>
-      <div className="card">
-        <p><strong>Bitcoin (BTC):</strong> ${prices.BTC ?? "Loading..."}</p>
-        <p><strong>Ethereum (ETH):</strong> ${prices.ETH ?? "Loading..."}</p>
-        <p><strong>Tether (USDT):</strong> ${prices.USDT ?? "Loading..."}</p>
+    <div className="dashboard-page packages-page">
+      <h2 className="title">Packages & Market Overview</h2>
+
+      <div className="market-box">
+        <div className="market-item">
+          <p>Bitcoin (BTC)</p>
+          <strong>${prices.BTC ?? "Loading..."}</strong>
+        </div>
+        <div className="market-item">
+          <p>Ethereum (ETH)</p>
+          <strong>${prices.ETH ?? "Loading..."}</strong>
+        </div>
+        <div className="market-item">
+          <p>Tether (USDT)</p>
+          <strong>${prices.USDT ?? "Loading..."}</strong>
+        </div>
+      </div>
+
+      <div className="package-box">
+        <div className="package-card basic">
+          <h3>Basic Plan</h3>
+          <p className="amount">$500 - $10,000</p>
+          <p>Start your investment journey with reliable, low-risk returns.</p>
+        </div>
+        <div className="package-card pro">
+          <h3>Pro Plan</h3>
+          <p className="amount">$10,001 - $50,000</p>
+          <p>Best for consistent traders seeking more aggressive strategies.</p>
+        </div>
+        <div className="package-card premium">
+          <h3>Premium Plan</h3>
+          <p className="amount">$50,001 - $500,000</p>
+          <p>Premium service for long-term high-return investors.</p>
+        </div>
       </div>
     </div>
   );
