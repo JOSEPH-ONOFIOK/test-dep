@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaBitcoin,
   FaEthereum,
@@ -15,7 +15,6 @@ import {
 } from "recharts";
 import "./Overview.css";
 
-// Mock portfolio data
 const mockPortfolio = [
   { name: "Bitcoin", symbol: "BTC", amount: 0.0242, price: 62125 },
   { name: "Ethereum", symbol: "ETH", amount: 0.158, price: 3200 },
@@ -23,25 +22,13 @@ const mockPortfolio = [
   { name: "Ripple", symbol: "XRP", amount: 420, price: 0.56 },
 ];
 
-// Follow list
-const mockFollow = [
-  { name: "Bitcoin", price: 62125, change: 2.5 },
-  { name: "Ethereum", price: 3200, change: -1.7 },
-  { name: "Litecoin", price: 92.5, change: 3.2 },
-  { name: "Ripple", price: 0.56, change: -0.9 },
-];
-
-// Chart data
-const chartData = [
-  { date: "Jul 1", buy: 52000, sell: 51000 },
-  { date: "Jul 5", buy: 56000, sell: 54000 },
-  { date: "Jul 10", buy: 58000, sell: 55000 },
-  { date: "Jul 15", buy: 60000, sell: 59000 },
-  { date: "Jul 19", buy: 62125, sell: 61000 },
-];
+const FOLLOWED_COINS = ["bitcoin", "ethereum", "litecoin", "ripple"];
 
 export default function Overview() {
   const [activeTab, setActiveTab] = useState("ALL");
+  const [followList, setFollowList] = useState([]);
+  const [chartData, setChartData] = useState([]);
+  const [selectedCoin, setSelectedCoin] = useState("bitcoin");
 
   const totalBalance = mockPortfolio.reduce(
     (acc, coin) => acc + coin.amount * coin.price,
@@ -51,9 +38,65 @@ export default function Overview() {
   const formatCurrency = (amount) =>
     "$" + amount.toLocaleString(undefined, { maximumFractionDigits: 2 });
 
+  // Fetch chart data for selected coin
+  useEffect(() => {
+    const fetchChartData = async () => {
+      try {
+        const res = await fetch(
+          `https://api.coingecko.com/api/v3/coins/${selectedCoin}/market_chart?vs_currency=usd&days=7&interval=daily`
+        );
+        const data = await res.json();
+
+        const formatted = data.prices.map(([timestamp, price]) => {
+          const date = new Date(timestamp);
+          return {
+            date: `${date.getMonth() + 1}/${date.getDate()}`,
+            price: price,
+          };
+        });
+
+        setChartData(formatted);
+      } catch (err) {
+        console.error("Error fetching chart data:", err);
+      }
+    };
+
+    fetchChartData();
+    const interval = setInterval(fetchChartData, 30000); // 30s
+    return () => clearInterval(interval);
+  }, [selectedCoin]);
+
+  // Real-time follow list
+  useEffect(() => {
+    const fetchFollowPrices = async () => {
+      try {
+        const response = await fetch(
+          `https://api.coingecko.com/api/v3/simple/price?ids=${FOLLOWED_COINS.join(
+            ","
+          )}&vs_currencies=usd&include_24hr_change=true`
+        );
+        const data = await response.json();
+
+        const formatted = FOLLOWED_COINS.map((coin) => ({
+          name: coin.charAt(0).toUpperCase() + coin.slice(1),
+          price: data[coin]?.usd ?? 0,
+          change: data[coin]?.usd_24h_change?.toFixed(2) ?? 0,
+        }));
+
+        setFollowList(formatted);
+      } catch (err) {
+        console.error("Error fetching real-time prices:", err);
+      }
+    };
+
+    fetchFollowPrices();
+    const interval = setInterval(fetchFollowPrices, 30000); // 30s
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="elaenia-overview">
-      {/* Header */}
+      {/* Welcome Header */}
       <div className="welcome-header">
         <div>
           <h2>Welcome back, Maria Pascle</h2>
@@ -62,11 +105,13 @@ export default function Overview() {
         </div>
         <div className="growth">
           <h2>{formatCurrency(totalBalance * 1.2)}</h2>
-          <p className="positive">+{formatCurrency(totalBalance * 0.2)} (20%)</p>
+          <p className="positive">
+            +{formatCurrency(totalBalance * 0.2)} (20%)
+          </p>
         </div>
       </div>
 
-      {/* Portfolio */}
+      {/* Portfolio Cards */}
       <div className="portfolio-section">
         {mockPortfolio.map((coin, index) => (
           <div className="coin-card" key={index}>
@@ -90,9 +135,21 @@ export default function Overview() {
         ))}
       </div>
 
-      {/* Chart */}
+      {/* Chart Section */}
       <div className="chart-section">
         <div className="chart-tabs">
+          <select
+            value={selectedCoin}
+            onChange={(e) => setSelectedCoin(e.target.value)}
+            className="chart-dropdown"
+          >
+            {FOLLOWED_COINS.map((coin) => (
+              <option value={coin} key={coin}>
+                {coin.charAt(0).toUpperCase() + coin.slice(1)}
+              </option>
+            ))}
+          </select>
+
           {["ALL", "1M", "6M", "1Y", "YTD"].map((tab) => (
             <button
               key={tab}
@@ -103,21 +160,30 @@ export default function Overview() {
             </button>
           ))}
         </div>
-        <ResponsiveContainer width="100%" height={250}>
-          <LineChart data={chartData}>
-            <XAxis dataKey="date" stroke="#aaa" />
-            <Tooltip
-              formatter={(value) => formatCurrency(value)}
-              labelStyle={{ color: "#ccc" }}
-              contentStyle={{ background: "#1e1a3d", borderColor: "#333" }}
-            />
-            <Line type="monotone" dataKey="buy" stroke="#00ffbf" strokeWidth={2} />
-            <Line type="monotone" dataKey="sell" stroke="#ff4d4d" strokeWidth={2} />
-          </LineChart>
-        </ResponsiveContainer>
+
+        <div className="chart-scroll-container">
+          <ResponsiveContainer width="100%" height={250}>
+            <LineChart data={chartData}>
+              <XAxis dataKey="date" stroke="#aaa" />
+              <Tooltip
+                formatter={(value) => formatCurrency(value)}
+                labelStyle={{ color: "#ccc" }}
+                contentStyle={{ background: "#1e1a3d", borderColor: "#333" }}
+              />
+              <Line
+                type="monotone"
+                dataKey="price"
+                stroke="#00ffbf"
+                strokeWidth={2}
+                dot={false}
+                isAnimationActive={true}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </div>
       </div>
 
-      {/* Stats */}
+      {/* Stats Section */}
       <div className="stats-section">
         <div className="stat-card">
           <p className="stat-label">24hr Volume</p>
@@ -137,10 +203,10 @@ export default function Overview() {
         </div>
       </div>
 
-      {/* Follow */}
+      {/* Real-Time Follow Section */}
       <div className="follow-section">
         <h3>Follow</h3>
-        {mockFollow.map((item, i) => (
+        {followList.map((item, i) => (
           <div className="follow-card" key={i}>
             <p>{item.name} (24h)</p>
             <div className="follow-info">
