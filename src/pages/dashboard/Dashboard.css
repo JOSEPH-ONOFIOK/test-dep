@@ -83,6 +83,12 @@
   overflow-y: auto;
   background-color: #0f0e1c;
 }
+/* Remove hover effect from hamburger button */
+.hamburger1:hover {
+  color: inherit;
+  background: none;
+  box-shadow: none;
+}
 
 /* Hamburger Button (Mobile Only) */
 .hamburger1 {
